@@ -17,14 +17,12 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get("/", async (req, res) => {
   const shortUrls = await dbTable.selectAll();
-  console.log(shortUrls);
   res.render("index.ejs", { shortUrls });
 });
 
 app.post("/shortUrls", async (req, res) => {
   const { fullUrl } = req.body;
   const dbRes = await dbTable.addUrlToDB(fullUrl);
-  console.log(dbRes);
   res.redirect("/");
 });
 
