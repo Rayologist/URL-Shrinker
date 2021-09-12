@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This project implements url shortening using Express.js and PostgreSQL as Backend, and EJS and Bootstrap as Frontend.",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "start-dev": "lsof -i :3000 -t | xargs kill -9 && nodemon server.js"
