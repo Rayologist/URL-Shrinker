@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL SHINKER</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">URL Shrinker</h1>
+      <form action="/shortUrls" method="POST" class="my-4 row">
+        <label for="fullUrl" class="visually-hidden">Url</label>
+        <input
+          type="url"
+          name="fullUrl"
+          id="fullUrl"
+          placeholder="URL"
+          class="form-control col me-2"
+          required
+        />
+        <button type="submit" class="btn btn-success col-2">Shrink</button>
+      </form>
+      <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+            <th>Full URL</th>
+            <th>Short URL</th>
+            <th>Clicks</th>
+            <th>Created</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% shortUrls.forEach(shortUrl => { %>
+          <tr>
+            <td>
+              <a href="<%= shortUrl.full_url %>"><%= shortUrl.full_url %></a>
+            </td>
+            <td>
+              <a class="short-url" href="<%= shortUrl.short_url %>"
+                ><%= shortUrl.short_url %></a
+              >
+            </td>
+            <td><%= shortUrl.click %></td>
+            <td><%= shortUrl.created_at.toLocaleString('zh-tw', { hour12: false }) %></td>
+            <td>
+              <form
+                action="/deleteUrl/<%= shortUrl.short_url %>?_method=DELETE"
+                method="post"
+              >
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
