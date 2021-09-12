@@ -28,7 +28,11 @@ app.post("/shortUrls", async (req, res) => {
   res.redirect("/");
 });
 
-
+app.delete("/deleteUrl/:shortUrl", async (req, res) => {
+  const { shortUrl } = req.params;
+  const result = await dbTable.deleteShortUrl(shortUrl);
+  res.redirect("/");
+});
 
 app.listen(PORT, () => {
   `Server listening on port ${PORT}`;
