@@ -1,6 +1,16 @@
 # URL-Shrinker
 
-This project implements url shortening using **Node.js**, **Express.js** and **PostgreSQL** as Backend, and **EJS** and **Bootstrap** as Frontend.
+This project implements url shortening using the following tech stack:
+
+- Back-end
+    1. `Node.js`
+    2. `Express.js`
+    3. `PostgreSQL`
+
+- Front-end
+    1. `EJS`
+    2. `Bootstrap`
+
 
 ![url shrinker dashboard](./img/dashboard.png)
 
