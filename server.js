@@ -15,6 +15,14 @@ app.set("view-engine", "ejs");
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
 
+app.get("/", async (req, res) => {
+  const shortUrls = await dbTable.selectAll();
+  console.log(shortUrls);
+  res.render("index.ejs", { shortUrls });
+});
+
+
+
 app.listen(PORT, () => {
   `Server listening on port ${PORT}`;
 });
