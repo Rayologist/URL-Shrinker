@@ -21,6 +21,13 @@ app.get("/", async (req, res) => {
   res.render("index.ejs", { shortUrls });
 });
 
+app.post("/shortUrls", async (req, res) => {
+  const { fullUrl } = req.body;
+  const dbRes = await dbTable.addUrlToDB(fullUrl);
+  console.log(dbRes);
+  res.redirect("/");
+});
+
 
 
 app.listen(PORT, () => {
