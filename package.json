@@ -2,9 +2,10 @@
   "name": "url-shrinker",
   "version": "1.0.0",
   "description": "This project implements url shortening using Express.js and PostgreSQL as Backend, and EJS and Bootstrap as Frontend.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "start-dev": "lsof -i :3000 -t | xargs kill -9 && nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,15 @@
   "bugs": {
     "url": "https://github.com/Rayologist/URL-Shrinker/issues"
   },
-  "homepage": "https://github.com/Rayologist/URL-Shrinker#readme"
+  "homepage": "https://github.com/Rayologist/URL-Shrinker#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "pg": "^8.7.1",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }
