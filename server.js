@@ -11,6 +11,10 @@ const dbTable = new UrlTable();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.set("view-engine", "ejs");
+app.use(methodOverride("_method"));
+app.use(express.urlencoded({ extended: false }));
+
 app.listen(PORT, () => {
   `Server listening on port ${PORT}`;
 });
