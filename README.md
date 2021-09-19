@@ -34,7 +34,7 @@ psql -V
 npm start
 ```
 
-## Reference
+# Reference
 
 1. [Web Dev Simplified](https://www.youtube.com/watch?v=SLpUKAGnm-g)
 2. [node-postgres](https://node-postgres.com/)
